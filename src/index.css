@@ -21,6 +21,7 @@ code {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  white-space: pre-wrap;
 }
 .note-footer {
   display: flex;
@@ -38,4 +39,33 @@ code {
   max-width: 1000px;
   margin: 0 auto;
   padding: 0 15px;
+}
+
+.newnote {
+  background-color: rgb(236, 179, 189);
+}
+textarea {
+  border: none;
+  resize: none;
+  background-color: rgb(236, 179, 189);
+}
+
+textarea:focus {
+  outline: none;
+}
+
+.save {
+  background-color: #e2e2e2;
+  border: none;
+  border-radius: 15px;
+  padding: 5px 10px;
+}
+
+.save:hover {
+  background-color: #ededed;
+  cursor: pointer;
+}
+
+.delete-icon {
+  cursor: pointer;
 }

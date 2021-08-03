@@ -4,7 +4,7 @@ import { useState } from "react";
 import { nanoid } from "nanoid";
 
 const App = () => {
-  const [notes, setnotes] = useState([
+  const [notes, setNotes] = useState([
     {
       id: nanoid(),
       text: "First Note",
@@ -22,9 +22,31 @@ const App = () => {
     },
   ]);
 
+  const addNote = (newText) => {
+    // console.log(newText);
+    const date = new Date();
+    const newNote = {
+      id: nanoid(),
+      text: newText,
+      date: date.toLocaleDateString(),
+    };
+
+    const newNotes = [...notes, newNote];
+    setNotes(newNotes);
+  };
+
+  const deleteNote = (id) => {
+    const newNotes = notes.filter((note) => note.id !== id);
+    setNotes(newNotes);
+  };
+
   return (
     <div className="App">
-      <NotesList notes={notes} />
+      <NotesList
+        notes={notes}
+        handleAddNote={addNote}
+        handleDeleteNote={deleteNote}
+      />
     </div>
   );
 };
